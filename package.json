@@ -1,10 +1,10 @@
 {
   "name": "iwallet-node",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "This is a Node.js module that eases the process of connecting to the iWallet SOAP web service.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,12 @@
     "iWallet"
   ],
   "author": "Nana Adane <nanaofosuheneadane@gmail.com> (http://v3rse.github.io/blog)",
-  "license": "MIT",
+  "licenses": [
+	    {
+		        "type": "MIT",
+			    "url": "https://github.com/brentertz/scapegoat/blob/master/LICENSE-MIT"
+				      }
+  ],  
   "bugs": {
     "url": "https://github.com/v3rse/iwallet-node/issues"
   },

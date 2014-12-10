@@ -44,21 +44,36 @@ Installation
 ------------
 
 Install iwallet-node by running:
-
+```
    npm install iwallet-node
-
+```
 Contribute
 ----------
 
 - Issue Tracker: github.com/v3rse/iwallet-node/issues
 - Source Code: github.com/v3rse/iwallet-node 
 
+
+Test
+-------
+
+```
+  npm test
+```
+
 Support
 -------
 
 If you are having issues, please let us know:
 support@dreamoval.com
+
 License
 -------
 
 The project is licensed under the MIT license.
+
+
+Release History
+-------
+
+* 0.1.0 Initial release

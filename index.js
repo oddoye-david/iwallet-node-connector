@@ -14,6 +14,7 @@ function IWalletNode(nspace, wsdl, av, merchant_email, merchant_secret_key, serv
 	            "UseIntMode":integration_mode
 	    }});
   this.proxy = proxy || null;
+  console.log(JSON.stringify(this.proxy));
 
 }
 
