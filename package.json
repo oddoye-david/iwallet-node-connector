@@ -19,11 +19,11 @@
   ],
   "author": "Nana Adane <nanaofosuheneadane@gmail.com> (http://v3rse.github.io/blog)",
   "licenses": [
-	    {
-		        "type": "MIT",
-			    "url": "https://github.com/brentertz/scapegoat/blob/master/LICENSE-MIT"
-				      }
-  ],  
+    {
+      "type": "MIT",
+      "url": "https://github.com/v3rse/iwallet-node/blob/master/LICENSE"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/v3rse/iwallet-node/issues"
   },
@@ -33,5 +33,8 @@
     "ef-soap": "^0.4.5",
     "mocha": "^2.0.1",
     "uuid": "^2.0.1"
+  },
+  "dependencies": {
+    "ef-soap": "^0.4.5"
   }
 }

@@ -24,12 +24,12 @@ var proxy = {
 };
 
 //Initialise 
-var iw = new iwallet(ns,url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1/*,proxy*/);
+var iw = new iwallet(ns,url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1,proxy);
 
 describe('Module constructor',function(){
 	it('initialises header object',function(){
 		iw.soapHeader.PaymentHeader.APIVersion.should.equal('1.4');
-	//	iw.proxy.should.equal(proxy);
+		iw.proxy.should.equal(proxy);
 	});
 });
 
@@ -45,7 +45,7 @@ describe('Utility functions',function(){
 
 describe('Connector functions',function(){
 //Test specific time for async adjust when necessary
-		this.timeout(120000);
+		this.timeout(10000);
 /*	
 	it("mobilePaymentOrder",function(){
 		
