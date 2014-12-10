@@ -6,7 +6,7 @@ This is a node module to easy integration with iWallet in node projects
 
 
 ```javascript
-var iwalletnode = require('./index');
+var iwalletnode = require('iwallet-node');
 var ns = 'http://www.i-walletlive.com/payLIVE';
 var url = 'https://www.i-walletlive.com/paylive/paymentservice.asmx?wsdl';
 var iwl = new iwalletnode(ns,url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",true);
