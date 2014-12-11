@@ -5,14 +5,14 @@ function IWalletNode(nspace, wsdl, av, merchant_email, merchant_secret_key, serv
   this.nspace = nspace;
   this.wsdl = wsdl;
 
-  this.soapHeader = Object({
+  this.soapHeader = {
 	    "PaymentHeader":{
 		    "APIVersion":av,
 	       	    "MerchantEmail":merchant_email,
 	            "MerchantKey":merchant_secret_key,
 	       	    "SvcType":service_type,
 	            "UseIntMode":integration_mode
-	    }});
+	    }};
   this.proxy = proxy || null;
   console.log(JSON.stringify(this.proxy));
 
@@ -47,7 +47,7 @@ IWalletNode.prototype.mobilePaymentOrder = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader);	
+	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
 		client.mobilePaymentOrder(arg,callback,this.proxy);
 	 });
 };
@@ -56,7 +56,7 @@ IWalletNode.prototype.processPaymentOrder = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader);	
+	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
 		client.ProcessPaymentOrder(arg,callback,this.proxy);
 	 });
 };
@@ -65,7 +65,7 @@ IWalletNode.prototype.confirmTransaction = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader);	
+	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
 		client.ConfirmTransaction(arg,callback,this.proxy);
 	 });
 };
@@ -74,7 +74,7 @@ IWalletNode.prototype.generatePaymentCode = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader);	
+	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
 		client.generatePaymentCode(arg,callback,this.proxy);
 	 });
 };
@@ -84,7 +84,7 @@ IWalletNode.prototype.verifyMobilePayment = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader);	
+	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
 		client.verifyMobilePayment(arg,callback,this.proxy);
 	 });
 };
@@ -94,7 +94,7 @@ IWalletNode.prototype.cancelTransaction = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader);	
+	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
 		client.CancelTransaction(arg,callback,this.proxy);
 	 });
 };
@@ -103,7 +103,7 @@ IWalletNode.prototype.checkPaymentStatus = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader);	
+	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
 		client.checkPaymentStatus(arg,callback,this.proxy);
 	 });
 };
@@ -123,7 +123,7 @@ IWalletNode.prototype.buildOrderItem = function(itemCode,itemName,unitPrice,quan
 //11.describe service
 IWalletNode.prototype.describe = function(){
 	 getClient(this.wsdl,function(err,client){
-	 	client.addSoapHeader(this.soapHeader);	
+	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
 		console.log(JSON.stringify(client.describe()));
 	 });
 };
