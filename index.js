@@ -4,7 +4,6 @@ var soap = require('ef-soap');
 var soapHeader;
 var proxy;
 function IWalletNode(wsdl, av, merchant_email, merchant_secret_key, service_type, integration_mode,pr){
-  this.nspace = nspace;
   this.wsdl = wsdl;
 
   soapHeader = {
