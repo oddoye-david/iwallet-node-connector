@@ -3,7 +3,6 @@ var orderId = require('uuid').v1();
 var soap = require("ef-soap");
 //var url = 'https://www.i-walletlive.com/paylive/paymentservice.asmx?wsdl';
 var url = 'http://54.173.0.222:8081/webservices/paymentservice.asmx?wsdl';
-var ns = 'http://www.i-walletlive.com/payLIVE';
 
 var args =  {
 		"taxAmount":5,
@@ -27,16 +26,14 @@ var proxy = {
         strictSSL: false	
 };
 
-var iwl = new iw(ns,url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1,proxy);
+var iwl = new iw(url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1,proxy);
 
 //iwl.describe();
-
 iwl.processPaymentOrder(args,function(err,results){
 	      if (err)
 		    throw err;
      console.log(JSON.stringify(results));
 });
-
 /*
 soap.createClient(url,function(err,client){
 

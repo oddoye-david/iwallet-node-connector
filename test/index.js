@@ -24,7 +24,7 @@ var proxy = {
 };
 
 //Initialise 
-var iw = new iwallet(ns,url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1,proxy);
+var iw = new iwallet(url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1,proxy);
 
 describe('Module constructor',function(){
 	it('initialises header object',function(){
