@@ -11,7 +11,8 @@ var proxy = {
         strictSSL: false	
 };
 
-var iwl = new iw(url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1,proxy);
+//Enter your merchant credentials
+var iwl = new iw(url,"1.4","yourmerchant.email","yourmerchantkey","C2B",1,proxy);
 
 /*Web Order:===============================================================================*/
 //Response: {"ProcessPaymentOrderResult":"48018b5d-ddbf-464d-871b-13a25aed3eb2"}
@@ -38,7 +39,7 @@ var args =  {
 
 iwl.processPaymentOrder(args,function(err,results){
 	      if (err)
-		    throw err
+		    throw err;
      console.log(JSON.stringify(results));
 });
 
@@ -73,7 +74,7 @@ var args2 =  {
 
 iwl.mobilePaymentOrder(args2,function(err,results){
 	      if (err)
-		    throw err
+		    throw err;
      console.log(JSON.stringify(results));
 	
 
@@ -81,7 +82,7 @@ iwl.mobilePaymentOrder(args2,function(err,results){
     //Response: {"verifyMobilePaymentResult":{"success":true,"token":"01da49fd-4e9f-4de2-b350-c0b08883eccb","imageUrl":"http://54.173.0.222:8081//download/qrcodes/Yc6p3A.png","orderCode":"Yc6p3A","status":"NEW","transactionId":{}}}
     iwl.verifyMobilePayment({"orderId":mobileorder},function(err,results){
 	      if (err)
-		    throw err
+		    throw err;
               console.log(JSON.stringify(results));
     });
 });
@@ -91,7 +92,7 @@ iwl.mobilePaymentOrder(args2,function(err,results){
 
 
 /*Generate Payment Code:===================================================================*/
-
+//You may have to add your phone number below
 var args3 =  {
 		"taxAmount":5,
 		"total":35,
@@ -108,7 +109,7 @@ var args3 =  {
 	        "comment2": "xxxxxxxx",
       	        "comment1": "xxxxxxxx",
                	"subtotal":20,
-		"payerMobile":"0246184046",
+		"payerMobile":"Some Phone Number",
 		"payerName" : "Some Dude",
 		"providerName" : "MTN_money",
 		"providerType" : " "
@@ -119,12 +120,12 @@ var args3 =  {
 //{"generatePaymentCodeResult":"Please check your phone for a prompt"}
 iwl.generatePaymentCode(args3,function(err,results){
 	      if (err)
-		    throw err
+		    throw err;
      console.log(JSON.stringify(results));
     //Response: {"checkPaymentStatusResult":"NEW"}
      iwl.checkPaymentStatus({"orderId":genorder,"providerName":"MTN_money","providerType":" "},function(err,results){
 	      if (err)
-		    throw err
+		    throw err;
               console.log(JSON.stringify(results));
     });
 });

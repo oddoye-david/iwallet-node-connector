@@ -1,8 +1,9 @@
 iwallet-node
 ============
 
-This is a node module to easy integration with iWallet in node projects
+[iWallet](https://www.iwallet.com.gh/) is an online payment service platform for merchants and individuals to securely make and receive payments. iWallet works like a aggregator which has integration with various channels of payments including some mobile money channels.
 
+This node module aims to reduce the amount of  code required to create an application which relies on iWallet for payment by exposing the actions(methods) provided by iWallet's SOAP API.
 
 
 ```javascript
@@ -34,6 +35,20 @@ iwl.processPaymentOrder(args,function(err,results){
 });
 ```
 
+
+Overview
+--------
+
+* mobilePaymentOrder : Function to make payment with extra features like QR code relevant for iwallet cruize app to complete payment
+* processPaymentOrder : Function to make payment to iWallet
+* confirmTransaction : Function to confirm the payment process after all operations have succeeded on both sides
+* verifyMobilePayment: Function meant for mobile payment to call iWallet in order to check on the status of a transaction
+* cancelTransaction : Function to cancel payment if your side of operation did not succeed. This initiates a refund proceed if iwallet was the payment channel
+* checkPaymentStatus : Function to check status of payment made with third party payment channel line MTN etc.
+* buildOrderItem : Helper function to build orderItem object.
+* describe : Helper function to print out JSON version of the service WSDL.
+ 
+
 Features
 --------
 
@@ -50,8 +65,9 @@ Install iwallet-node by running:
 Contribute
 ----------
 
-- Issue Tracker: github.com/v3rse/iwallet-node/issues
-- Source Code: github.com/v3rse/iwallet-node 
+- Issue Tracker: [https://www.github.com/v3rse/iwallet-node/issues](https://www.github.com/v3rse/iwallet-node/issues)
+- Source Code: [https://www.github.com/v3rse/iwallet-node](https://www.github.com/v3rse/iwallet-node)
+
 
 
 Test
@@ -71,9 +87,3 @@ License
 -------
 
 The project is licensed under the [MIT](LICENSE) license.
-
-
-Release History
--------
-
-* 0.1.0 Initial release

@@ -29,7 +29,8 @@ var args = {
 var proxy = null;
 
 //Initialise 
-var iw = new iwallet(url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1,proxy);
+//Please enter your email and key
+var iw = new iwallet(url,"1.4","yourmerchant.email","yourmerchantkey","C2B",1,proxy);
 
 
 
@@ -38,7 +39,7 @@ var iw = new iwallet(url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZ
 
 
 //Test Suite
-describe('Utility functions',function(){
+describe('Module utility function',function(){
 	it('builds an order item object from the arguments passed',function(){
 		orderItem = iw.buildOrderItem("conv1","Converse All-Star",140,2,280);
 		orderItem.should.have.property("OrderItem");
@@ -48,7 +49,7 @@ describe('Utility functions',function(){
 });
 
 
-describe('Testing module functions',function(){
+describe('Module',function(){
 
 
 //Test specific time for async adjust when necessary
@@ -100,8 +101,9 @@ describe('Testing module functions',function(){
 	
 	it("can run generatePaymentCode action",function(done){
 	
+		//Enter Phone Number
 		args.orderId = uuid.v1();
-		args.payerMobile = '0246184046';
+		args.payerMobile = 'xxxxxxxxx';
 		args.payerName = 'MTN_money';
 		args.providerName = 'v3rse';
 		args.providerType = ' ';
