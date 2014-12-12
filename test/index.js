@@ -3,9 +3,7 @@ var should = require('chai').should(),
     uuid = require('uuid');
 
 var ns = 'http://www.i-walletlive.com/payLIVE';
-//var url = 'https://www.i-walletlive.com/paylive/paymentservice.asmx?wsdl';
-var url = 'http://54.173.0.222:8081/webservices/paymentservice.asmx?wsdl';
-var orderId = uuid.v1();
+var url = 'https://www.i-walletlive.com/paylive/paymentservice.asmx?wsdl';
 
 var orderItem;
 var args = {
@@ -13,88 +11,124 @@ var args = {
 		"total":295,
                  "orderItems":[],
 		"shippingCost":10,
-                "orderId": orderId,
+                "orderId": "",
 	        "comment2": "TEST",
       	        "comment1": "TEST",
                	"subtotal":280
              };
-var proxy = {
+
+
+
+
+//Put your proxy here if you need it
+/*var proxy = {
 	proxy: "http://127.0.0.1:8888",
         strictSSL: false	
 };
+*/
+var proxy = null;
 
 //Initialise 
-var iw = new iwallet(ns,url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1,proxy);
-
-describe('Module constructor',function(){
-	it('initialises header object',function(){
-		iw.soapHeader.PaymentHeader.APIVersion.should.equal('1.4');
-		iw.proxy.should.equal(proxy);
-	});
-});
+var iw = new iwallet(url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",1,proxy);
 
 
+
+
+
+
+
+//Test Suite
 describe('Utility functions',function(){
 	it('builds an order item object from the arguments passed',function(){
 		orderItem = iw.buildOrderItem("conv1","Converse All-Star",140,2,280);
 		orderItem.should.have.property("OrderItem");
 		orderItem.OrderItem.ItemName.should.equal("Converse All-Star");	
+		args.orderItems.push(orderItem);
 	});
 });
 
 
-describe('Connector functions',function(){
+describe('Testing module functions',function(){
+
+
 //Test specific time for async adjust when necessary
 		this.timeout(10000);
-/*	
-	it("mobilePaymentOrder",function(){
-		
-	 	iwl.mobilePaymentOrder();
+	
+	it("can run mobilePaymentOrder action",function(done){
+
+		args.orderId = uuid.v1();
+                iw.mobilePaymentOrder(args,function(err,result){
+	             if (err)
+			return done(err);
+	             result.should.have.property("mobilePaymentOrderResult");
+		     result.mobilePaymentOrderResult.success.should.be.a('boolean');
+		     result.mobilePaymentOrderResult.success.should.equal(true);
+		     done();
+		});
 	});
-*/	
+	
 
-	it("processPaymentOrder",function(done){
 
-		args.orderItems.push(orderItem);
+	
+	it("can run verifyMobilePayment action",function(done){
+	     iw.verifyMobilePayment({"orderId":args.orderId},function(err,result){
+	           if (err)
+			return done(err);
+		   result.should.have.property("verifyMobilePaymentResult");
+                   result.verifyMobilePaymentResult.success.should.be.a('boolean');
+		   result.verifyMobilePaymentResult.success.should.equal(true);
+		   done();
+            });
+	});
+	
+
+
+	it("can run ProcessPaymentOrder action",function(done){
+
+		args.orderId = uuid.v1();
 		iw.processPaymentOrder(args,function(err,result){
 			if(err)
 				return done(err);
 			result.should.have.property("ProcessPaymentOrderResult");
-			result.should.be.a('string');
+			result.ProcessPaymentOrderResult.should.be.a('string');
 			done();
 		});
 			
 	});
 
-/*
-	it("confirmTransaction",function(){
+
 	
+	it("can run generatePaymentCode action",function(done){
+	
+		args.orderId = uuid.v1();
+		args.payerMobile = '0246184046';
+		args.payerName = 'MTN_money';
+		args.providerName = 'v3rse';
+		args.providerType = ' ';
+		iw.generatePaymentCode(args,function(err,result){
+			if(err)
+				return done(err);
+			result.should.have.property("generatePaymentCodeResult");
+			result.generatePaymentCodeResult.should.be.a('string');
+			done();
+		});
+
 	
 	});
 
-	
-	it("generatePaymentCode",function(){
-	
-	
-	});
 
 	
-	it("verifyMobilePayment",function(){
 	
-	
-	});
-
-	
-	it("cancelTransaction",function(){
-	
-	
-	});
-
-	
-	it("checkPaymentStatus",function(){
-	
+	it("can run checkPaymentStatus action",function(){
+	 
+          iw.checkPaymentStatus({"orderId":args.orderId,"providerName":args.providerName,"providerType":args.providerType},function(err,result){
+	              if (err)
+	          	return done(err);
+		   result.should.have.property("checkPaymentStatusResult");
+                   result.checkPaymentStatusResult.success.should.be.a('boolean');
+		   result.checkPaymentStatusResult.success.should.equal(true);
+		   done();
+            });
 	
 	});
-*/
-
 });

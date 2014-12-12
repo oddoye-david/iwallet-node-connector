@@ -1,11 +1,12 @@
 //Require neccessary modules
 var soap = require('ef-soap');
 
-function IWalletNode(nspace, wsdl, av, merchant_email, merchant_secret_key, service_type, integration_mode,proxy){
-  this.nspace = nspace;
+var soapHeader;
+var proxy;
+function IWalletNode(wsdl, av, merchant_email, merchant_secret_key, service_type, integration_mode,pr){
   this.wsdl = wsdl;
 
-  this.soapHeader = {
+  soapHeader = {
 	    "PaymentHeader":{
 		    "APIVersion":av,
 	       	    "MerchantEmail":merchant_email,
@@ -13,8 +14,7 @@ function IWalletNode(nspace, wsdl, av, merchant_email, merchant_secret_key, serv
 	       	    "SvcType":service_type,
 	            "UseIntMode":integration_mode
 	    }};
-  this.proxy = proxy || null;
-  console.log(JSON.stringify(this.proxy));
+  proxy = pr; 
 
 }
 
@@ -23,7 +23,7 @@ function getClient(wsdl,callback){
 	soap.createClient(wsdl,function(err,client){
 	       if(err)
 	 		callback(err);
-		return callback(null,client);
+		 callback(null,client);
 	});
 }
 
@@ -47,8 +47,8 @@ IWalletNode.prototype.mobilePaymentOrder = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
-		client.mobilePaymentOrder(arg,callback,this.proxy);
+	 	client.addSoapHeader(soapHeader,null,"tns",null);	
+		client.mobilePaymentOrder(arg,callback,proxy);
 	 });
 };
 //2.processPaymentOrder
@@ -56,8 +56,8 @@ IWalletNode.prototype.processPaymentOrder = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
-		client.ProcessPaymentOrder(arg,callback,this.proxy);
+	 	client.addSoapHeader(soapHeader,null,"tns",null);	
+		client.ProcessPaymentOrder(arg,callback,proxy);
 	 });
 };
 //4.confirmTransaction
@@ -65,8 +65,8 @@ IWalletNode.prototype.confirmTransaction = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
-		client.ConfirmTransaction(arg,callback,this.proxy);
+	 	client.addSoapHeader(soapHeader,null,"tns",null);	
+		client.ConfirmTransaction(arg,callback,proxy);
 	 });
 };
 //5.generatePaymentCode
@@ -74,8 +74,8 @@ IWalletNode.prototype.generatePaymentCode = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
-		client.generatePaymentCode(arg,callback,this.proxy);
+	 	client.addSoapHeader(soapHeader,null,"tns",null);	
+		client.generatePaymentCode(arg,callback,proxy);
 	 });
 };
 
@@ -84,8 +84,8 @@ IWalletNode.prototype.verifyMobilePayment = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
-		client.verifyMobilePayment(arg,callback,this.proxy);
+	 	client.addSoapHeader(soapHeader,null,"tns",null);	
+		client.verifyMobilePayment(arg,callback,proxy);
 	 });
 };
 
@@ -94,8 +94,8 @@ IWalletNode.prototype.cancelTransaction = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
-		client.CancelTransaction(arg,callback,this.proxy);
+	 	client.addSoapHeader(soapHeader,null,"tns",null);	
+		client.CancelTransaction(arg,callback,proxy);
 	 });
 };
 //8.checkPaymentStatus
@@ -103,8 +103,8 @@ IWalletNode.prototype.checkPaymentStatus = function(arg,callback) {
          getClient(this.wsdl,function(err,client){
 	 	if(err)
 		 	throw err;
-	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
-		client.checkPaymentStatus(arg,callback,this.proxy);
+	 	client.addSoapHeader(soapHeader,null,"tns",null);	
+		client.checkPaymentStatus(arg,callback,proxy);
 	 });
 };
 //10.buildOrderItem
@@ -123,7 +123,7 @@ IWalletNode.prototype.buildOrderItem = function(itemCode,itemName,unitPrice,quan
 //11.describe service
 IWalletNode.prototype.describe = function(){
 	 getClient(this.wsdl,function(err,client){
-	 	client.addSoapHeader(this.soapHeader,null,"tns",null);	
+	 	client.addSoapHeader(soapHeader,null,"tns",null);	
 		console.log(JSON.stringify(client.describe()));
 	 });
 };

@@ -70,7 +70,7 @@ support@dreamoval.com
 License
 -------
 
-The project is licensed under the MIT license.
+The project is licensed under the [MIT](LICENSE) license.
 
 
 Release History

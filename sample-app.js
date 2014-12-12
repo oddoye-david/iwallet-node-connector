@@ -1,4 +1,4 @@
-var iw = require('./index');
+var iw = require('iwallet-node');
 var uuid = require('uuid');
 var orderId = uuid.v1();
 var mobileorder = uuid.v1();
