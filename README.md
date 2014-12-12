@@ -45,7 +45,7 @@ Installation
 
 Install iwallet-node by running:
 ```
-   npm install -g git://github.com/v3rse/iwallet-node.git 
+   npm install -g iwallet-node
 ```
 Contribute
 ----------
