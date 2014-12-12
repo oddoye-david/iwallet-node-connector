@@ -59,7 +59,7 @@ Installation
 
 Install iwallet-node by running:
 ```
-   npm install -g iwallet-node
+   npm install -g iwallet-node-connector
 ```
 Contribute
 ----------
