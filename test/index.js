@@ -3,8 +3,7 @@ var should = require('chai').should(),
     uuid = require('uuid');
 
 var ns = 'http://www.i-walletlive.com/payLIVE';
-//var url = 'https://www.i-walletlive.com/paylive/paymentservice.asmx?wsdl';
-var url = 'http://54.173.0.222:8081/webservices/paymentservice.asmx?wsdl';
+var url = 'https://www.i-walletlive.com/paylive/paymentservice.asmx?wsdl';
 
 var orderItem;
 var args = {
@@ -22,13 +21,11 @@ var args = {
 
 
 //Put your proxy here if you need it
-/*
-var proxy = {
+/*var proxy = {
 	proxy: "http://127.0.0.1:8888",
         strictSSL: false	
 };
 */
-
 var proxy = null;
 
 //Initialise 
@@ -106,7 +103,7 @@ describe('Testing module functions',function(){
 		args.orderId = uuid.v1();
 		args.payerMobile = '0246184046';
 		args.payerName = 'MTN_money';
-		args.providerName = 'Nana Adane';
+		args.providerName = 'v3rse';
 		args.providerType = ' ';
 		iw.generatePaymentCode(args,function(err,result){
 			if(err)
