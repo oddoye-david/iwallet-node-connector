@@ -7,10 +7,9 @@ This node module aims to reduce the amount of  code required to create an applic
 
 
 ```javascript
-var iwalletnode = require('iwallet-node');
-var ns = 'http://www.i-walletlive.com/payLIVE';
+var iwalletnode = require('iwallet-node-connector');
 var url = 'https://www.i-walletlive.com/paylive/paymentservice.asmx?wsdl';
-var iwl = new iwalletnode(ns,url,"1.4","iwallet@dreamoval.com","bdVI+jtRl80PG4x6NMvYOwfZTZtwfN","C2B",true);
+var iwl = new iwalletnode(url,"1.4","yourmerchant.email","yourmerchantkey","C2B",true);
 var args =  {
 		"taxAmount":5,
 		"total":35,

@@ -85,7 +85,7 @@ IWalletNode.prototype.verifyMobilePayment = function(arg,callback) {
 	 	if(err)
 		 	throw err;
 	 	client.addSoapHeader(soapHeader,null,"tns",null);	
-		client.verifyMobilePayment(arg,callback,proxy);
+		client.verifyPayment(arg,callback,proxy);
 	 });
 };
 
