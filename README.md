@@ -1,4 +1,4 @@
-iwallet-node
+iwallet-node-connector
 ============
 
 [iWallet](https://www.iwallet.com.gh/) is an online payment service platform for merchants and individuals to securely make and receive payments. iWallet works like a aggregator which has integration with various channels of payments including some mobile money channels.
@@ -64,8 +64,8 @@ Install iwallet-node by running:
 Contribute
 ----------
 
-- Issue Tracker: [https://www.github.com/v3rse/iwallet-node/issues](https://www.github.com/v3rse/iwallet-node/issues)
-- Source Code: [https://www.github.com/v3rse/iwallet-node](https://www.github.com/v3rse/iwallet-node)
+- Issue Tracker: [https://www.github.com/DreamOval/iwallet-node-connector/issues](https://www.github.com/DreamOval/iwallet-node-connector/issues)
+- Source Code: [https://www.github.com/DreamOval/iwallet-node-connector](https://www.github.com/DreamOval/iwallet-node-connector)
 
 
 

@@ -1,5 +1,5 @@
 {
-  "name": "iwallet-node",
+  "name": "iwallet-node-connector",
   "version": "0.1.0",
   "description": "This is a Node.js module that eases the process of connecting to the iWallet SOAP web service.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/v3rse/iwallet-node.git"
+    "url": "https://github.com/DreamOval/iwallet-node-connector.git"
   },
   "keywords": [
     "soap",
@@ -21,13 +21,13 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/v3rse/iwallet-node/blob/master/LICENSE"
+      "url": "https://github.com/DreamOval/iwallet-node-connector/blob/master/LICENSE"
     }
   ],
   "bugs": {
-    "url": "https://github.com/v3rse/iwallet-node/issues"
+    "url": "https://github.com/DreamOval/iwallet-node-connector/issues"
   },
-  "homepage": "https://github.com/v3rse/iwallet-node",
+  "homepage": "https://github.com/DreamOval/iwallet-node-connector",
   "devDependencies": {
     "chai": "^1.10.0",
     "ef-soap": "^0.4.5",
