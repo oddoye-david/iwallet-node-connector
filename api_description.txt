@@ -1,0 +1,167 @@
+{
+    "PaymentService": {
+        "PaymentServiceSoap": {
+            "CancelTransaction": {
+                "input": {
+                    "payToken": "xs:string",
+                    "transactionId": "xs:string"
+                },
+                "output": {
+                    "CancelTransactionResult": "xs:int"
+                }
+            },
+            "ConfirmTransaction": {
+                "input": {
+                    "payToken": "xs:string",
+                    "transactionId": "xs:string"
+                },
+                "output": {
+                    "ConfirmTransactionResult": "xs:int"
+                }
+            },
+            "ProcessOrder": {
+                "input": {
+                    "amount": "xs:string",
+                    "comment1": "xs:string",
+                    "comment2": "xs:string",
+                    "custRef": "xs:string",
+                    "item": "xs:string",
+                    "quantity": "xs:string",
+                    "unitPrice": "xs:string",
+                    "useIntMode": "xs:string",
+                    "useToken": "xs:string"
+                },
+                "output": {
+                    "ProcessOrderResult": "xs:string"
+                }
+            },
+            "ProcessPaymentJSON": {
+                "input": {
+                    "amount": "xs:decimal",
+                    "comment1": "xs:string",
+                    "comment2": "xs:string",
+                    "orderId": "xs:string",
+                    "orderItems": {
+                        "OrderItem[]": {
+                            "ItemCode": "xs:string",
+                            "ItemName": "xs:string",
+                            "Quantity": "xs:int",
+                            "SubTotal": "xs:decimal",
+                            "UnitPrice": "xs:decimal"
+                        }
+                    }
+                },
+                "output": {
+                    "processPaymentJSONResult": "xs:string"
+                }
+            },
+            "ProcessPaymentOrder": {
+                "input": {
+                    "comment1": "xs:string",
+                    "comment2": "xs:string",
+                    "orderId": "xs:string",
+                    "orderItems": {
+                        "OrderItem[]": {
+                            "ItemCode": "xs:string",
+                            "ItemName": "xs:string",
+                            "Quantity": "xs:int",
+                            "SubTotal": "xs:decimal",
+                            "UnitPrice": "xs:decimal"
+                        }
+                    },
+                    "shippingCost": "xs:decimal",
+                    "subtotal": "xs:decimal",
+                    "taxAmount": "xs:decimal",
+                    "total": "xs:decimal"
+                },
+                "output": {
+                    "ProcessPaymentOrderResult": "xs:string"
+                }
+            },
+            "checkPaymentStatus": {
+                "input": {
+                    "orderId": "xs:string",
+                    "providerName": "xs:string",
+                    "providerType": "xs:string"
+                },
+                "output": {
+                    "checkPaymentStatusResult": "xs:string"
+                }
+            },
+            "generatePaymentCode": {
+                "input": {
+                    "comment1": "xs:string",
+                    "comment2": "xs:string",
+                    "orderId": "xs:string",
+                    "orderItems": {
+                        "OrderItem[]": {
+                            "ItemCode": "xs:string",
+                            "ItemName": "xs:string",
+                            "Quantity": "xs:int",
+                            "SubTotal": "xs:decimal",
+                            "UnitPrice": "xs:decimal"
+                        }
+                    },
+                    "payerMobile": "xs:string",
+                    "payerName": "xs:string",
+                    "providerName": "xs:string",
+                    "providerType": "xs:string",
+                    "shippingCost": "xs:decimal",
+                    "subtotal": "xs:decimal",
+                    "taxAmount": "xs:decimal",
+                    "total": "xs:decimal"
+                },
+                "output": {
+                    "generatePaymentCodeResult": "xs:string"
+                }
+            },
+            "mobilePaymentOrder": {
+                "input": {
+                    "comment1": "xs:string",
+                    "comment2": "xs:string",
+                    "orderId": "xs:string",
+                    "orderItems": {
+                        "OrderItem[]": {
+                            "ItemCode": "xs:string",
+                            "ItemName": "xs:string",
+                            "Quantity": "xs:int",
+                            "SubTotal": "xs:decimal",
+                            "UnitPrice": "xs:decimal"
+                        }
+                    },
+                    "shippingCost": "xs:decimal",
+                    "subtotal": "xs:decimal",
+                    "taxAmount": "xs:decimal",
+                    "total": "xs:decimal"
+                },
+                "output": {
+                    "mobilePaymentOrderResult": {
+                        "error": "xs:string",
+                        "imageUrl": "xs:string",
+                        "orderCode": "xs:string",
+                        "status": "xs:string",
+                        "success": "xs:boolean",
+                        "token": "xs:string",
+                        "transactionId": "xs:string"
+                    }
+                }
+            },
+            "verifyMobilePayment": {
+                "input": {
+                    "orderId": "xs:string"
+                },
+                "output": {
+                    "verifyMobilePaymentResult": {
+                        "error": "xs:string",
+                        "imageUrl": "xs:string",
+                        "orderCode": "xs:string",
+                        "status": "xs:string",
+                        "success": "xs:boolean",
+                        "token": "xs:string",
+                        "transactionId": "xs:string"
+                    }
+                }
+            }
+        }
+    }
+}
