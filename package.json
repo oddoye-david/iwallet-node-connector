@@ -1,6 +1,6 @@
 {
   "name": "iwallet-node-connector",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "This is a Node.js module that eases the process of connecting to the iWallet SOAP web service.",
   "main": "index.js",
   "scripts": {
