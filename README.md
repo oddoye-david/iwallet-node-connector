@@ -7,7 +7,7 @@ This node module aims to reduce the amount of  code required to create an applic
 
 
 ```javascript
-var iwalletnode = require('iwallet-node-connector');
+var iwalletnode = require('iwallet-node');
 var url = 'https://www.i-walletlive.com/paylive/paymentservice.asmx?wsdl';
 var iwl = new iwalletnode(url,"1.4","yourmerchant.email","yourmerchantkey","C2B",true);
 var args =  {
@@ -59,7 +59,7 @@ Installation
 
 Install iwallet-node by running:
 ```
-   npm install -g iwallet-node-connector
+   npm install -g iwallet-node
 ```
 Contribute
 ----------
