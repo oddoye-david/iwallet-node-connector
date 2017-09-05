@@ -4,7 +4,7 @@
   "description": "This is a Node.js module that eases the process of connecting to the SlydePay REST API.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "compile": "babel --out-dir dist lib",
     "prepublish": "yarn run compile",
     "postinstall": "yarn run compile",
