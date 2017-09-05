@@ -1,40 +1,51 @@
 {
   "name": "iwallet-node",
-  "version": "0.1.3",
-  "description": "This is a Node.js module that eases the process of connecting to the iWallet SOAP web service.",
+  "version": "0.0.1",
+  "description": "This is a Node.js module that eases the process of connecting to the SlydePay REST API.",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "jest",
+    "compile": "babel --out-dir dist lib",
+    "prepublish": "yarn run compile",
+    "postinstall": "yarn run compile",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DreamOval/iwallet-node-connector.git"
+    "url": "https://github.com/oddoye-david/iwallet-node-connector.git"
   },
   "keywords": [
-    "soap",
+    "rest",
     "web",
     "service",
     "payment",
-    "iWallet"
+    "SlydePay"
   ],
-  "author": "Nana Adane <nanaofosuheneadane@gmail.com> (http://v3rse.github.io/blog)",
+  "author": "David Oddoye <oddoyedavid@gmail.com> (https://oddoye.com)",
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/DreamOval/iwallet-node-connector/blob/master/LICENSE"
+      "url": "https://github.com/oddoye-david/iwallet-node-connector/blob/master/LICENSE"
     }
   ],
   "bugs": {
-    "url": "https://github.com/DreamOval/iwallet-node-connector/issues"
+    "url": "https://github.com/oddoye-david/iwallet-node-connector/issues"
   },
-  "homepage": "https://github.com/DreamOval/iwallet-node-connector",
+  "homepage": "https://github.com/oddoye-david/iwallet-node-connector",
   "devDependencies": {
-    "chai": "^1.10.0",
-    "ef-soap": "^0.4.5",
-    "mocha": "^2.0.1",
-    "uuid": "^2.0.1"
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-jest": "^20.0.3",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "jest": "^21.0.1"
   },
   "dependencies": {
-    "ef-soap": "^0.4.5"
+    "joi": "^10.6.0",
+    "axios": "^0.16.2"
   }
 }
