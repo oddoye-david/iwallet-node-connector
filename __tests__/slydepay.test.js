@@ -1,6 +1,6 @@
 import Slydepay from '../lib/slydepay';
 
-describe('Instantiation Tests', () => {
+describe('Instantiation Tests', async () => {
   test('Should initialize a SlydePay instance given emailOrMobileNumber and merchantKey', () => {
     const instance = Slydepay.init({
       emailOrMobileNumber: 'merchant@awesomecustomer.com',

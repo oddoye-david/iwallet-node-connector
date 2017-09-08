@@ -47,5 +47,8 @@
   "dependencies": {
     "joi": "^10.6.0",
     "axios": "^0.16.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
